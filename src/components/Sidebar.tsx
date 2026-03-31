@@ -1,10 +1,18 @@
 "use client"
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { LayoutDashboard, TrendingUp, Users, Building, UserCircle, Banknote, Settings, LogOut, Building2 } from 'lucide-react'
+import { signOut } from 'next-auth/react'
 
 export default function Sidebar({ user }: { user: any }) {
   const pathname = usePathname()
+  const router = useRouter()
+
+  async function handleSignOut() {
+    await signOut({ redirect: false })
+    router.push('/login')
+    router.refresh()
+  }
   
   const allNavItems = [
     { name: 'Raio-X de Resultados', href: '/dashboard', icon: LayoutDashboard },
@@ -57,14 +65,15 @@ export default function Sidebar({ user }: { user: any }) {
       </nav>
       
       <div className="p-6 border-t border-slate-800/80 mt-auto bg-slate-900/30">
-         <p className="text-slate-300 px-2 text-sm font-medium truncate mb-4">{user?.name || user?.email}</p>
-         <form action="/api/auth/signout" method="POST" className="px-2">
-           <button type="submit" className="flex items-center gap-3 text-sm text-slate-500 hover:text-red-400 font-bold transition-colors w-full p-2 hover:bg-red-500/10 rounded-xl border border-transparent hover:border-red-500/20 shadow-sm active:scale-95">
-              <LogOut className="w-4 h-4" />
-              Encerrar Sessão
-           </button>
-         </form>
-      </div>
+          <p className="text-slate-300 px-2 text-sm font-medium truncate mb-4">{user?.name || user?.email}</p>
+          <button 
+            onClick={handleSignOut}
+            className="flex items-center gap-3 text-sm text-slate-500 hover:text-red-400 font-bold transition-colors w-full p-2 hover:bg-red-500/10 rounded-xl border border-transparent hover:border-red-500/20 shadow-sm active:scale-95"
+          >
+             <LogOut className="w-4 h-4" />
+             Encerrar Sessão
+          </button>
+       </div>
       <style dangerouslySetInnerHTML={{__html: `
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
