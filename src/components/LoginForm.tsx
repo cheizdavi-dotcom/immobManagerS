@@ -1,29 +1,35 @@
 "use client"
 
 import { signIn } from "next-auth/react"
-import { useState } from "react"
+import { useState, useTransition } from "react"
 import PasswordInput from "./PasswordInput"
-import { Building2 } from "lucide-react"
 import Link from "next/link"
 
 export default function LoginForm() {
   const [error, setError] = useState<string | null>(null)
+  const [isPending, startTransition] = useTransition()
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget)
+    setError(null)
     
-    const result = await signIn("credentials", {
-      email: formData.get("email"),
-      password: formData.get("password"),
-      redirect: false,
-    })
+    const formData = new FormData(e.currentTarget)
+    const email = formData.get("email") as string
+    const password = formData.get("password") as string
+    
+    startTransition(async () => {
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      })
 
-    if (result?.error) {
-      setError("Credenciais incorretas ou conta não existe.")
-    } else {
-      window.location.href = "/dashboard"
-    }
+      if (result?.error) {
+        setError("Credenciais incorretas ou conta não existe.")
+      } else {
+        window.location.href = "/dashboard"
+      }
+    })
   }
 
   return (
@@ -53,8 +59,12 @@ export default function LoginForm() {
         </div>
 
         <div className="pt-4">
-          <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold tracking-wide py-4.5 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all active:scale-[0.98]">
-            Acessar Painel
+          <button 
+            type="submit" 
+            disabled={isPending}
+            className="w-full bg-blue-600 hover:bg-blue-500 disabled:bg-blue-800 text-white font-bold tracking-wide py-4.5 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] transition-all active:scale-[0.98] disabled:cursor-not-allowed"
+          >
+            {isPending ? "Entrando..." : "Acessar Painel"}
           </button>
         </div>
       </form>
