@@ -134,7 +134,7 @@ export default function ConfiguracoesClient({ userSession, settings }: { userSes
             })}
          </div>
 
-         <div className="lg:col-span-9 bg-slate-900/30 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-8 shadow-2xl relative overflow-hidden min-h-[500px]">
+         <div className="lg:col-span-9 bg-slate-900/30 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-4 lg:p-8 shadow-2xl relative overflow-hidden min-h-[500px]">
              
              {activeTab === 'geral' && (
                <div className="animate-in fade-in slide-in-from-right-4 duration-300 space-y-8">

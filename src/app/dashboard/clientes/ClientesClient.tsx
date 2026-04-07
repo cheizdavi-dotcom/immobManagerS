@@ -123,7 +123,7 @@ export default function ClientesClient({ clients: initialClients }: { clients: a
     <div className="flex flex-col h-full animate-in fade-in duration-700 max-w-full mx-auto w-full px-4 overflow-hidden">
       
       {/* HEADER SECTION */}
-      <div className="flex items-center justify-between mb-8 shrink-0">
+      <div className="flex flex-col md:flex-row items-start md:items-center gap-4 justify-between mb-8 shrink-0 w-full">
         <div>
            <div className="flex items-center gap-2 mb-2">
               <span className="bg-blue-600/10 text-blue-500 text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded-md border border-blue-600/20 shadow-sm">Pipeline OS</span>

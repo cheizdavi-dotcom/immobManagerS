@@ -1,4 +1,5 @@
 import Sidebar from "@/components/Sidebar"
+import MobileDragPolyfill from "@/components/MobileDragPolyfill"
 import MobileNavbar from "@/components/MobileNavbar"
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
