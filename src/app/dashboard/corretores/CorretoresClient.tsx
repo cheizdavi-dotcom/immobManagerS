@@ -133,19 +133,17 @@ export default function CorretoresClient({ brokers }: { brokers: any[] }) {
                  </div>
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-slate-800/60 relative z-10">
-                 <button onClick={() => setHistoryModal(broker)} className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-slate-800 border border-transparent">
-                    <History className="w-4 h-4" /> Histórico
-                 </button>
-                 <div className="flex gap-2">
-                    <button onClick={() => openEdit(broker)} className="flex items-center gap-2 px-3 py-2 text-xs font-bold text-slate-400 hover:text-blue-400 transition-colors rounded-lg hover:bg-blue-600/10 hover:border-blue-500/20 border border-transparent">
-                       <Edit className="w-4 h-4" /> Editar
-                    </button>
-                    <button onClick={() => handleDelete(broker.id)} className="flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-slate-500 hover:text-red-500 transition-colors rounded-lg hover:bg-red-500/10 hover:border-red-500/20 border border-transparent">
-                       <Trash2 className="w-4 h-4" /> Excluir
-                    </button>
-                 </div>
-              </div>
+               <div className="mt-auto pt-4 border-t border-slate-800/60 relative z-10 flex items-center justify-end gap-1">
+                  <button onClick={() => setHistoryModal(broker)} className="flex items-center justify-center w-9 h-9 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors" title="Histórico">
+                     <History className="w-4 h-4" />
+                  </button>
+                  <button onClick={() => openEdit(broker)} className="flex items-center justify-center w-9 h-9 rounded-lg text-slate-400 hover:text-blue-400 hover:bg-blue-600/10 transition-colors" title="Editar">
+                     <Edit className="w-4 h-4" />
+                  </button>
+                  <button onClick={() => handleDelete(broker.id)} className="flex items-center justify-center w-9 h-9 rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-500/10 transition-colors" title="Excluir">
+                     <Trash2 className="w-4 h-4" />
+                  </button>
+               </div>
             </div>
           )
         })}

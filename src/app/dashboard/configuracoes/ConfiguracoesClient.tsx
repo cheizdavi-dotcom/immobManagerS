@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 import { useState } from "react"
 import { ShieldCheck, UserCircle, Settings2, Webhook, BellRing, Save, Key, Mail, Link2, Smartphone, Loader2, CheckCircle2, X } from "lucide-react"
 import { saveGlobalSettings } from "../../actions"
@@ -68,8 +68,9 @@ export default function ConfiguracoesClient({ userSession, settings }: { userSes
         if(type === 'wpp') { setWhatsapp(false); setWhatsappToken(""); }
         if(type === 'meta') { setMeta(false); setMetaPixelId(""); }
         if(type === 'rd') { setRd(false); setRdStationToken(""); }
+        setTimeout(() => handleSave(true), 100)
      }
-  }
+   }
 
   const saveApiModal = async () => {
     if(apiModal === 'wpp') { setWhatsapp(true); setWhatsappToken(tempToken); }
@@ -176,7 +177,7 @@ export default function ConfiguracoesClient({ userSession, settings }: { userSes
                              </div>
                          </div>
                          <div className="space-y-4">
-                             <label className="text-xs font-bold tracking-widest uppercase text-slate-400">Repasse Máximo Corretor (Broker %)</label>
+                             <label className="text-xs font-bold tracking-widest uppercase text-slate-400">Repasse MÃ¡ximo Corretor (Broker %)</label>
                              <div className="flex items-center gap-4 border border-slate-800/80 rounded-xl p-3 bg-slate-900">
                                 <input type="range" min="0" max="100" value={broker} onChange={e=>handleBrokerChange(Number(e.target.value))} className="w-full accent-blue-500" />
                                 <span className="font-bold text-blue-400 min-w-[50px] text-right">{broker.toFixed(1)}%</span>
@@ -322,3 +323,5 @@ function ToastCard({ title, desc, active, onChange }: any) {
     </div>
   )
 }
+
+

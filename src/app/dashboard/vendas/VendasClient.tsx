@@ -1,9 +1,10 @@
 "use client"
 import { useState, useEffect } from "react"
-import { LayoutGrid, List, Plus, Search, ChevronDown, ChevronUp, Edit, Trash2, CalendarDays, Filter, Users, Building, X, Loader2 } from "lucide-react"
+import { LayoutGrid, List, Plus, Search, ChevronDown, ChevronUp, Edit, Trash2, CalendarDays, Filter, Users, Building, X, Loader2, FileText } from "lucide-react"
 import { format } from "date-fns"
 import React from "react"
 import { saveSale, deleteSale } from "../../actions"
+import { generateSalePDF } from "@/lib/generatePDF"
 
 export default function VendasClient({ sales, developments, clients, brokers, userRole }: { sales: any[], developments: any[], clients: any[], brokers: any[], userRole?: string }) {
   const [view, setView] = useState<'table' | 'kanban'>('table')
@@ -182,11 +183,12 @@ export default function VendasClient({ sales, developments, clients, brokers, us
                          {getStatusBadge(sale.status)}
                       </td>
                       <td className="px-6 py-5 whitespace-nowrap text-center text-slate-500">
-                         {/* ACTION BUTTONS HOOKED TO STATE */}
-                         <div className="flex items-center justify-center gap-3 transition-all duration-300">
-                            <button onClick={(e) => { e.stopPropagation(); openEdit(sale); }} className="p-2 bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-400 rounded-lg transition-colors border border-slate-700/50 hover:border-blue-500/30 shadow-sm" title="Editar Venda"><Edit className="w-4 h-4" /></button>
-                            <button onClick={(e) => handleDelete(sale.id, e)} className="p-2 bg-slate-800/80 hover:bg-red-500/10 hover:text-red-500 rounded-lg transition-colors border border-slate-700/50 hover:border-red-500/30 shadow-sm" title="Apagar"><Trash2 className="w-4 h-4" /></button>
-                         </div>
+                          {/* ACTION BUTTONS HOOKED TO STATE */}
+                          <div className="flex items-center justify-center gap-3 transition-all duration-300">
+                             <button onClick={(e) => { e.stopPropagation(); generateSalePDF(sale); }} className="p-2 bg-emerald-500/10 hover:bg-emerald-500/20 hover:text-emerald-400 rounded-lg transition-colors border border-emerald-500/20 hover:border-emerald-500/40 shadow-sm" title="Gerar PDF"><FileText className="w-4 h-4" /></button>
+                             <button onClick={(e) => { e.stopPropagation(); openEdit(sale); }} className="p-2 bg-slate-800/80 hover:bg-blue-600/20 hover:text-blue-400 rounded-lg transition-colors border border-slate-700/50 hover:border-blue-500/30 shadow-sm" title="Editar Venda"><Edit className="w-4 h-4" /></button>
+                             <button onClick={(e) => handleDelete(sale.id, e)} className="p-2 bg-slate-800/80 hover:bg-red-500/10 hover:text-red-500 rounded-lg transition-colors border border-slate-700/50 hover:border-red-500/30 shadow-sm" title="Apagar"><Trash2 className="w-4 h-4" /></button>
+                          </div>
                       </td>
                     </tr>
                     {expandedId === sale.id && (

@@ -51,6 +51,8 @@ model User {
   
   // CRM Relations
   sales         Sale[]    @relation("UserSales")
+  visits        Visit[]   @relation("UserVisits")
+  clients       Client[]  @relation("UserClients")
 }
 
 model VerificationToken {
@@ -71,10 +73,15 @@ model Client {
   status    String   @default("Morno")
   kanbanPhase String @default("NOVO") // NOVO, CONTATO, AGENDADO, NEGOCIACAO, CONTRATO, FECHADO
   contractUrl String?
+  ultimoContato DateTime? // Data do Ãºltimo contato (visita, mensagem, etc)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   
+  userId    String?
+  user      User?     @relation("UserClients", fields: [userId], references: [id])
+  
   sales     Sale[]
+  visits    Visit[]
 }
 
 model Broker {
@@ -88,6 +95,7 @@ model Broker {
   updatedAt DateTime @updatedAt
   
   sales     Sale[]
+  visits    Visit[]
 }
 
 model Development {
@@ -99,6 +107,8 @@ model Development {
   updatedAt DateTime @updatedAt
   
   sales     Sale[]
+  properties Property[]
+  visits    Visit[]
 }
 
 model Sale {
@@ -127,6 +137,9 @@ model Sale {
   developmentId   String
   development     Development @relation(fields: [developmentId], references: [id])
   
+  propertyId      String?
+  property        Property?   @relation(fields: [propertyId], references: [id])
+  
   userId          String
   user            User        @relation("UserSales", fields: [userId], references: [id])
 }
@@ -140,7 +153,7 @@ model GlobalSettings {
   brokerCommission Float    @default(60.0)
   whatsappActive   Boolean  @default(false)
   whatsappToken    String?
-  metaActive       Boolean  @default(true)
+  metaActive       Boolean  @default(false)
   metaPixelId      String?
   rdStationActive  Boolean  @default(false)
   rdStationToken   String?
@@ -149,6 +162,61 @@ model GlobalSettings {
   alertDefault     Boolean  @default(false)
   alertLost        Boolean  @default(false)
   updatedAt        DateTime @updatedAt
+}
+
+// --- IMÃ“VEIS & VISITAS ---
+model Property {
+  id            String   @id @default(cuid())
+  title         String
+  type          String   // APARTAMENTO, CASA, TERRENO, SALA_COMERCIAL, LOJA, SOBRADO, CHACARA
+  address       String
+  neighborhood  String?
+  city          String?
+  state         String   @default("SP")
+  area          Float?
+  bedrooms      Int      @default(0)
+  bathrooms     Int      @default(0)
+  parkingSpaces Int      @default(0)
+  price         Float?
+  status        String   @default("DISPONIVEL") // DISPONIVEL, RESERVADO, VENDIDO
+  photos        String?  // JSON array de URLs
+  
+  developmentId String?
+  development   Development? @relation(fields: [developmentId], references: [id])
+  
+  visits        Visit[]
+  sales         Sale[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Visit {
+  id          String   @id @default(cuid())
+  scheduledAt DateTime
+  duration    Int      @default(30) // minutos
+  status      String   @default("AGENDADA") // AGENDADA, CONFIRMADA, REALIZADA, CANCELADA, REMARCADA
+  notes       String?
+  feedback    String?
+  rating      Int?
+  
+  developmentId String?
+  development   Development? @relation(fields: [developmentId], references: [id])
+  
+  propertyId  String?
+  property    Property? @relation(fields: [propertyId], references: [id])
+  
+  clientId    String
+  client      Client   @relation(fields: [clientId], references: [id])
+  
+  brokerId    String
+  broker      Broker   @relation(fields: [brokerId], references: [id])
+  
+  userId      String
+  user        User     @relation("UserVisits", fields: [userId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 

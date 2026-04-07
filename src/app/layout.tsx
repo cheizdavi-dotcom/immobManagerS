@@ -1,5 +1,6 @@
 import "./globals.css"
 import type { Metadata } from "next"
+import Providers from "@/components/Providers"
 
 export const metadata: Metadata = {
   title: "ImmobManager OS",
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className="antialiased bg-[#05080b] text-slate-50 min-h-screen">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

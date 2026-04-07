@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { LayoutDashboard, TrendingUp, Users, Building, UserCircle, Banknote, Settings, LogOut, Building2 } from 'lucide-react'
+import { LayoutDashboard, TrendingUp, Users, Building, UserCircle, Banknote, Settings, LogOut, Building2, CalendarDays } from 'lucide-react'
 import { signOut } from 'next-auth/react'
 
 export default function Sidebar({ user }: { user: any }) {
@@ -18,6 +18,7 @@ export default function Sidebar({ user }: { user: any }) {
     { name: 'Raio-X de Resultados', href: '/dashboard', icon: LayoutDashboard },
     { name: 'Mesa de Vendas', href: '/dashboard/vendas', icon: TrendingUp },
     { name: 'Meus Clientes', href: '/dashboard/clientes', icon: Users },
+    { name: 'Agenda de Visitas', href: '/dashboard/visitas', icon: CalendarDays },
     { name: 'Empreendimentos', href: '/dashboard/empreendimentos', icon: Building, adminOnly: true },
     { name: 'Corretores Ativos', href: '/dashboard/corretores', icon: UserCircle, adminOnly: true },
     { name: 'Finanças Operacional', href: '/dashboard/financeiro', icon: Banknote, adminOnly: true },
