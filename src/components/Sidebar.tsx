@@ -28,7 +28,7 @@ export default function Sidebar({ user }: { user: any }) {
   const navItems = allNavItems.filter(item => !item.adminOnly || user?.role === 'ADMIN')
 
   return (
-    <aside className="w-72 border-r border-slate-800/80 bg-slate-950 flex flex-col h-full shadow-2xl relative z-10">
+    <aside className="hidden lg:flex w-72 border-r border-slate-800/80 bg-slate-950 flex-col h-full shadow-2xl relative z-10">
       <div className="px-8 py-8 border-b border-slate-800/60 flex items-center gap-3 relative overflow-hidden group">
          <div className="absolute top-0 right-0 w-16 h-16 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all"></div>
          <div className="relative z-10 bg-gradient-to-br from-blue-600/20 to-blue-900/10 p-2.5 rounded-xl border border-blue-500/30 shadow-inner group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all">
