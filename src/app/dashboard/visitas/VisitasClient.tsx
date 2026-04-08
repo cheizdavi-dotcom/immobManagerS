@@ -190,7 +190,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
           </div>
         </div>
 
-        <div className="w-full 2xl:w-96 bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-6 shadow-2xl flex flex-col">
+        <div className="w-full 2xl:w-96 min-h-[300px] xl:min-h-0 bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-6 shadow-2xl flex flex-col">
           <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-800/60">
             <Calendar className="w-5 h-5 text-blue-400" />
             <h3 className="text-lg font-bold text-white">

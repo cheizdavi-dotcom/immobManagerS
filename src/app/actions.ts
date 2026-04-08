@@ -15,9 +15,9 @@ export async function saveClient(data: any) {
     
     const updateData: any = {
       name: data.name,
-      email: data.email,
-      phone: data.phone,
-      cpf: data.cpf,
+      email: data.email || null,
+      phone: data.phone || null,
+      cpf: data.cpf || null,
       status: data.status,
       kanbanPhase: data.kanbanPhase || "NOVO",
     };
@@ -34,9 +34,9 @@ export async function saveClient(data: any) {
     await prisma.client.create({
       data: {
         name: data.name,
-        email: data.email,
-        phone: data.phone,
-        cpf: data.cpf,
+        email: data.email || null,
+        phone: data.phone || null,
+        cpf: data.cpf || null,
         status: data.status,
         kanbanPhase: data.kanbanPhase || "NOVO",
         userId: userId || null,
@@ -150,7 +150,7 @@ export async function saveBroker(data: any) {
   if (data.id) {
     await prisma.broker.update({
       where: { id: data.id },
-      data: { name: data.name, email: data.email, phone: data.phone, creci: data.creci, avatar: data.avatar }
+      data: { name: data.name, email: data.email || null, phone: data.phone || null, creci: data.creci, avatar: data.avatar }
     })
   } else {
     
@@ -171,7 +171,7 @@ export async function saveBroker(data: any) {
     }
 
     await prisma.broker.create({
-      data: { name: data.name, email: data.email, phone: data.phone, creci: data.creci, avatar: data.avatar }
+      data: { name: data.name, email: data.email || null, phone: data.phone || null, creci: data.creci, avatar: data.avatar }
     })
   }
   revalidatePath('/dashboard/corretores')
