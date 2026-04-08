@@ -143,7 +143,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
       )}
 
       <div className="flex flex-col 2xl:flex-row gap-6 flex-1 min-h-0">
-        <div className="flex-1 bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-6 shadow-2xl overflow-y-auto custom-scrollbar">
+        <div className="flex-1 min-h-[450px] xl:min-h-0 bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-6 shadow-2xl overflow-y-auto custom-scrollbar">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between mb-6 w-full">
             <div className="flex items-center gap-4">
               <button onClick={() => setCurrentDate(subMonths(currentDate, 1))} className="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white">
