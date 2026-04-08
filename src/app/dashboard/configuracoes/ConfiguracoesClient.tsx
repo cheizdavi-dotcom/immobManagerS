@@ -184,7 +184,7 @@ export default function ConfiguracoesClient({ userSession, settings }: { userSes
                              </div>
                          </div>
                      </div>
-                     <div className="mt-8 pt-4 border-t border-slate-800/50 flex justify-between items-center relative z-10">
+                     <div className="mt-8 pt-4 border-t border-slate-800/50 flex flex-col xl:flex-row gap-4 justify-between items-stretch xl:items-center relative z-10">
                         <span className="text-sm font-medium text-slate-500">Divisão Operacional Simétrica Constante</span>
                         <div className={`flex items-center gap-2 px-4 py-2 rounded-lg border ${(house+broker) === 100 ? 'bg-emerald-500/10 border-emerald-500/20' : 'bg-red-500/10 border-red-500/20'}`}>
                            <CheckCircle2 className={`w-4 h-4 ${(house+broker) === 100 ? 'text-emerald-400' : 'text-red-400'}`} />

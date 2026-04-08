@@ -132,8 +132,8 @@ export default function ClientesClient({ clients: initialClients }: { clients: a
            <p className="text-sm font-medium text-slate-500">Arraste e solte para mover as negociações entre as fases.</p>
         </div>
 
-        <div className="flex items-center gap-4 bg-slate-900/50 p-1.5 rounded-2xl border border-slate-800/60 shadow-inner">
-           <div className="flex p-1 bg-slate-950/80 rounded-xl border border-slate-800/50 gap-1">
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4 bg-slate-900/50 p-1.5 rounded-2xl border border-slate-800/60 shadow-inner w-full lg:w-auto">
+           <div className="flex p-1 bg-slate-950/80 rounded-xl border border-slate-800/50 gap-1 w-full lg:w-auto justify-center">
               <button onClick={() => setView("kanban")} className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all ${view === 'kanban' ? 'bg-blue-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}>
                 <LayoutGrid className="w-3.5 h-3.5" /> Quadro
               </button>
@@ -141,7 +141,7 @@ export default function ClientesClient({ clients: initialClients }: { clients: a
                 <ListIcon className="w-3.5 h-3.5" /> Lista
               </button>
            </div>
-           <button onClick={openNew} className="flex items-center gap-2 bg-slate-100 hover:bg-white text-slate-950 font-black text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all shadow-[0_0_25px_rgba(255,255,255,0.05)] active:scale-95 border border-white/20">
+           <button onClick={openNew} className="flex items-center justify-center gap-2 bg-slate-100 hover:bg-white text-slate-950 font-black text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all shadow-[0_0_25px_rgba(255,255,255,0.05)] active:scale-95 border border-white/20 w-full lg:w-auto">
               Novo Proponente
            </button>
         </div>
@@ -187,8 +187,7 @@ export default function ClientesClient({ clients: initialClients }: { clients: a
                       {columnClients.map(client => (
                         <div 
                           key={client.id} 
-                          draggable 
-                          onDragStart={() => handleDragStart(client.id)}
+                          draggable style={{ touchAction: "none" }} onDragStart={() => handleDragStart(client.id)}
                           onClick={() => openEdit(client)}
                           className={`bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 p-5 rounded-2xl shadow-lg hover:border-slate-700/80 transition-all cursor-grab active:cursor-grabbing group relative overflow-hidden ${draggedId === client.id ? 'opacity-30' : 'opacity-100'}`}
                         >

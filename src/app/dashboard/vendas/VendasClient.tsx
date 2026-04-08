@@ -140,6 +140,7 @@ export default function VendasClient({ sales, developments, clients, brokers, us
       {view === 'table' ? (
         <div className="bg-slate-900/40 backdrop-blur-2xl rounded-3xl shadow-2xl border border-slate-800/60 overflow-hidden flex-1 relative">
           <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
+          <p className="xl:hidden text-xs text-blue-400 mb-4 ml-6 font-bold flex items-center gap-2">👉 Role a tabela para o lado para ver Opções e Editar</p>
           <div className="overflow-x-auto pb-4 custom-scrollbar">
             <table className="w-full text-left border-collapse min-w-[1200px]">
               <thead className="bg-slate-950/80 text-slate-500 text-[10px] uppercase tracking-[0.2em] font-bold border-b border-slate-800/80">

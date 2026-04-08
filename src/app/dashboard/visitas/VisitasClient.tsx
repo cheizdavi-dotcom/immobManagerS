@@ -98,7 +98,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
           <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Agenda de Visitas</h1>
           <p className="text-sm font-medium text-slate-400">Gerenciamento operacional de atendimentos e property tours.</p>
         </div>
-        <button onClick={openNew} className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold tracking-wide px-6 py-3 rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] active:scale-95 border border-blue-500/50">
+        <button onClick={openNew} className="flex justify-center items-center gap-2 w-full lg:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold tracking-wide px-6 py-3 rounded-xl transition-all shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] active:scale-95 border border-blue-500/50">
           <Plus className="w-5 h-5" /> Nova Visita
         </button>
         <button 
@@ -124,7 +124,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
             setIsSendingReminders(false)
           }} 
           disabled={isSendingReminders}
-          className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold tracking-wide px-6 py-3 rounded-xl transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] active:scale-95 border border-emerald-500/50 disabled:opacity-50"
+          className="flex justify-center items-center gap-2 w-full lg:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold tracking-wide px-6 py-3 rounded-xl transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] active:scale-95 border border-emerald-500/50 disabled:opacity-50"
         >
           {isSendingReminders ? <Loader2 className="w-5 h-5 animate-spin" /> : <Bell className="w-5 h-5" />}
           {isSendingReminders ? "Enviando..." : "Enviar Lembretes"}
@@ -142,7 +142,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
         </div>
       )}
 
-      <div className="flex gap-6 flex-1 min-h-0">
+      <div className="flex flex-col 2xl:flex-row gap-6 flex-1 min-h-0">
         <div className="flex-1 bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-6 shadow-2xl overflow-y-auto custom-scrollbar">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between mb-6 w-full">
             <div className="flex items-center gap-4">
@@ -190,7 +190,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
           </div>
         </div>
 
-        <div className="w-96 bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-6 shadow-2xl flex flex-col">
+        <div className="w-full 2xl:w-96 bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-6 shadow-2xl flex flex-col">
           <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-800/60">
             <Calendar className="w-5 h-5 text-blue-400" />
             <h3 className="text-lg font-bold text-white">
