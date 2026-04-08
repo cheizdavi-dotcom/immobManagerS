@@ -187,7 +187,7 @@ export default function ClientesClient({ clients: initialClients }: { clients: a
                       {columnClients.map(client => (
                         <div 
                           key={client.id} 
-                          draggable style={{ touchAction: "none" }} onDragStart={() => handleDragStart(client.id)}
+                          draggable style={{ touchAction: "pan-y" }} onDragStart={() => handleDragStart(client.id)}
                           onClick={() => openEdit(client)}
                           className={`bg-slate-900/80 backdrop-blur-xl border border-slate-800/80 p-5 rounded-2xl shadow-lg hover:border-slate-700/80 transition-all cursor-grab active:cursor-grabbing group relative overflow-hidden ${draggedId === client.id ? 'opacity-30' : 'opacity-100'}`}
                         >
