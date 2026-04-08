@@ -86,7 +86,7 @@ export default function ConfiguracoesClient({ userSession, settings }: { userSes
 
   return (
     <div className="flex flex-col h-full animate-in fade-in duration-500 max-w-[1200px] mx-auto w-full relative">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between mb-8 w-full">
         <div className="flex gap-4 items-center relative group">
            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-20 h-20 bg-blue-500/20 rounded-full blur-2xl group-hover:bg-blue-500/30 transition-all pointer-events-none"></div>
            <div className="p-4 bg-slate-900/80 border border-slate-800 rounded-2xl shadow-inner relative z-10">
@@ -250,7 +250,7 @@ export default function ConfiguracoesClient({ userSession, settings }: { userSes
       {apiModal && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4 min-h-screen">
           <div className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden animate-in zoom-in-95 duration-200">
-             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900/50">
+             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between p-6 border-b border-slate-800 bg-slate-900/50 w-full">
                 <h3 className="text-lg font-bold text-white flex items-center gap-3">
                    <Webhook className="w-5 h-5 text-blue-400" />
                    Configurar Motor: {apiModal === 'wpp' ? 'WhatsApp' : apiModal === 'meta' ? 'Facebook Pixels' : 'RD Station'}

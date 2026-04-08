@@ -171,7 +171,7 @@ export default function ClientesClient({ clients: initialClients }: { clients: a
                   onDrop={(e) => handleDrop(e, phase.id)}
                   className={`min-w-[320px] max-w-[320px] flex flex-col h-full rounded-2xl transition-all duration-300 ${isActive ? 'bg-blue-600/5 ring-2 ring-blue-500/30' : ''}`}
                 >
-                   <div className="flex items-center justify-between px-3 py-4 shrink-0 transition-opacity">
+                   <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between px-3 py-4 shrink-0 transition-opacity w-full">
                       <div className="flex items-center gap-3">
                          <div className={`p-2 rounded-xl border ${phase.color}`}>
                             {<phase.icon className="w-4 h-4 text-slate-400" />}
@@ -198,7 +198,7 @@ export default function ClientesClient({ clients: initialClients }: { clients: a
                               <div className="flex items-center gap-2 text-[11px] font-bold text-slate-400 uppercase tracking-widest"><Smartphone className="w-3.5 h-3.5" /> {client.phone || "—"}</div>
                               <div className="flex items-center gap-2 text-[11px] font-bold text-slate-400 uppercase tracking-widest"><User className="w-3.5 h-3.5" /> CPF: {client.cpf || "—"}</div>
                            </div>
-                           <div className="flex items-center justify-between pt-4 border-t border-slate-800/50">
+                           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between pt-4 border-t border-slate-800/50 w-full">
                               <span className="text-[9px] font-black text-slate-500 uppercase tracking-[0.2em]">Interest: {client.status}</span>
                               <Trash2 onClick={(e) => { e.stopPropagation(); handleDelete(client.id); }} className="w-3.5 h-3.5 text-slate-700 hover:text-red-500 cursor-pointer transition-colors"/>
                            </div>
@@ -243,7 +243,7 @@ export default function ClientesClient({ clients: initialClients }: { clients: a
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
            <div className="absolute inset-0 bg-[#02040a]/90 backdrop-blur-md" onClick={() => setIsModalOpen(false)}></div>
            <div className="relative bg-[#0b0f19] border border-slate-800/60 rounded-[2rem] shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col animate-in fade-in zoom-in-95">
-              <div className="flex items-center justify-between p-8 border-b border-slate-800/60 bg-slate-950/40">
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between p-8 border-b border-slate-800/60 bg-slate-950/40 w-full">
                  <h2 className="text-xl font-bold tracking-tight text-white uppercase tracking-widest">{isEditMode ? "Tática de Negociação" : "Novo Prospecto"}</h2>
                  <button onClick={() => setIsModalOpen(false)} className="text-slate-500 hover:text-white p-2.5 rounded-xl bg-slate-900/50 border border-slate-800"><X className="w-5 h-5"/></button>
               </div>

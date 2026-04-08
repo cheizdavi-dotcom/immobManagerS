@@ -90,7 +90,7 @@ export default function CorretoresClient({ brokers }: { brokers: any[] }) {
 
   return (
     <div className="flex flex-col h-full animate-in fade-in duration-500 max-w-[1400px] mx-auto w-full relative">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between mb-8 w-full">
         <div>
            <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Gestão de Corretores</h1>
            <p className="text-sm font-medium text-slate-400">Cadastre e gerencie o esquadrão tático de vendas.</p>
@@ -158,7 +158,7 @@ export default function CorretoresClient({ brokers }: { brokers: any[] }) {
       {modalOpen && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
            <div className="bg-slate-900 border border-slate-800 rounded-[2rem] w-full max-w-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden animate-in zoom-in-95 duration-200">
-             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900/50">
+             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between p-6 border-b border-slate-800 bg-slate-900/50 w-full">
                <h3 className="text-xl font-bold text-white tracking-wide">
                  {editData?.id ? 'Atualizar Corretor Tático' : 'Recrutar Novo Corretor'}
                </h3>
@@ -231,7 +231,7 @@ export default function CorretoresClient({ brokers }: { brokers: any[] }) {
       {historyModal && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
            <div className="bg-slate-900 border border-slate-800 rounded-[2rem] w-full max-w-4xl shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden animate-in zoom-in-95 duration-200 flex flex-col max-h-[85vh]">
-             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900/50 shrink-0">
+             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between p-6 border-b border-slate-800 bg-slate-900/50 shrink-0 w-full">
                <div>
                   <h3 className="text-xl font-bold text-white tracking-wide">
                     Histórico de Vendas: {historyModal.name}

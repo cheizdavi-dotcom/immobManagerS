@@ -105,7 +105,7 @@ export default function VendasClient({ sales, developments, clients, brokers, us
 
   return (
     <div className="flex flex-col h-full animate-in fade-in duration-500 max-w-[1500px] mx-auto w-full">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between mb-8 w-full">
          {/* CABEÇALHO */}
         <div>
            <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Vendas Realizadas</h1>
@@ -239,7 +239,7 @@ export default function VendasClient({ sales, developments, clients, brokers, us
            <div className="relative bg-slate-900/90 backdrop-blur-2xl border border-slate-800/60 rounded-[2rem] shadow-2xl shadow-black/80 w-full max-w-[850px] max-h-[90vh] overflow-hidden flex flex-col animate-in fade-in zoom-in-95 duration-300">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent"></div>
               
-              <div className="flex items-center justify-between p-8 border-b border-slate-800/60 bg-slate-950/40">
+              <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between p-8 border-b border-slate-800/60 bg-slate-950/40 w-full">
                  <div>
                     <h2 className="text-2xl font-bold tracking-tight text-white flex items-center gap-3">
                        <div className="w-2.5 h-8 bg-blue-500 rounded-full"></div>

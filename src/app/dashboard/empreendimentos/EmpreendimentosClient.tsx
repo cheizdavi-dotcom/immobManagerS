@@ -43,7 +43,7 @@ export default function EmpreendimentosClient({ developments }: { developments: 
 
   return (
     <div className="flex flex-col h-full animate-in fade-in duration-500 max-w-[1400px] mx-auto w-full relative">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between mb-8 w-full">
         <div>
            <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Catálogo de Empreendimentos</h1>
            <p className="text-sm font-medium text-slate-400">Produtos, Plantas e Mapeamento de Construtoras Ativas.</p>
@@ -96,7 +96,7 @@ export default function EmpreendimentosClient({ developments }: { developments: 
       {modalOpen && (
         <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
            <div className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-lg shadow-[0_0_50px_rgba(0,0,0,0.5)] overflow-hidden animate-in zoom-in-95 duration-200">
-             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-900/50">
+             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between p-6 border-b border-slate-800 bg-slate-900/50 w-full">
                <h3 className="text-xl font-bold text-white tracking-wide">
                  {editData?.id ? 'Atualizar Planta/Produto' : 'Declarar Novo Empreendimento'}
                </h3>

@@ -9,7 +9,7 @@ export default function MobileDragPolyfill() {
       dragImageTranslateOverride: scrollBehaviourDragImageTranslateOverride,
       holdToDrag: 300
     });
-    const listener = (e) => {};
+    const listener = (e: any) => {};
     window.addEventListener('touchmove', listener, { passive: false });
     return () => window.removeEventListener('touchmove', listener);
   }, []);

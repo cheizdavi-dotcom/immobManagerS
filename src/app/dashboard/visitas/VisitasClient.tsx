@@ -93,7 +93,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
 
   return (
     <div className="flex flex-col h-full animate-in fade-in duration-500 max-w-[1600px] mx-auto w-full">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between mb-8 w-full">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Agenda de Visitas</h1>
           <p className="text-sm font-medium text-slate-400">Gerenciamento operacional de atendimentos e property tours.</p>
@@ -144,7 +144,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
 
       <div className="flex gap-6 flex-1 min-h-0">
         <div className="flex-1 bg-slate-900/40 backdrop-blur-2xl rounded-3xl border border-slate-800/60 p-6 shadow-2xl overflow-y-auto custom-scrollbar">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between mb-6 w-full">
             <div className="flex items-center gap-4">
               <button onClick={() => setCurrentDate(subMonths(currentDate, 1))} className="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white">
                 <ChevronLeft className="w-5 h-5" />
@@ -203,7 +203,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
               selectedDayVisits.length > 0 ? (
                 selectedDayVisits.map((visit: any) => (
                   <div key={visit.id} className="bg-slate-950/50 border border-slate-800 rounded-xl p-4 hover:border-slate-700 transition-all">
-                    <div className="flex items-center justify-between mb-3">
+                    <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between mb-3 w-full">
                       <span className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest ${STATUS_COLORS[visit.status] || 'bg-slate-800 text-slate-400'}`}>
                         {visit.status}
                       </span>
@@ -252,7 +252,7 @@ export default function VisitasClient({ visits, developments, clients, brokers, 
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-[#02040a]/90 backdrop-blur-md" onClick={() => setIsModalOpen(false)}></div>
           <div className="relative bg-slate-900/90 backdrop-blur-2xl border border-slate-800/60 rounded-[2rem] shadow-2xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in-95 duration-300">
-            <div className="flex items-center justify-between p-6 border-b border-slate-800/60 bg-slate-950/40">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4 justify-between p-6 border-b border-slate-800/60 bg-slate-950/40 w-full">
               <h2 className="text-xl font-bold text-white">{isEditMode ? "Editar Visita" : "Nova Visita"}</h2>
               <button onClick={() => setIsModalOpen(false)} className="text-slate-500 hover:text-white p-2 rounded-xl hover:bg-slate-800 transition-all"><X className="w-5 h-5"/></button>
             </div>
